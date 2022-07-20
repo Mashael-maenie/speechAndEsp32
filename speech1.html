@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+</head >
+<body style= "background-color: #CCFFFF ;text-align:center;" >
+    
+  
+  
+    
+    <input style="
+    text-align:center;
+    border:2px solid #003333;
+    border-radius:7px;
+    font-size:40px;
+    width: 500px; 
+    height: 200px;    
+    "
+    type="text" name="" id="speechToText" placeholder="اضغط وتحدث " onclick="record()">
+
+    <script>
+        function record() {
+            var recognition = new webkitSpeechRecognition();
+            recognition.lang = "ar-SA";
+
+            recognition.onresult = function(event) {
+                document.getElementById('speechToText').value = event.results[0][0].transcript;
+            }
+            recognition.start();
+
+        }
+    </script>
+</body>
+</html>
